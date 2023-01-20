@@ -104,7 +104,7 @@ new_settings = {
         "swsl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_weakly_supervised_resnext101_32x4-3f87e46b.pth",  # noqa
     },
     "resnext101_32x8d": {
-        "antialiased_f4": "hhttps://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnext101_32x8d_lpf4_finetune-8f13a25d.pth",
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnext101_32x8d_lpf4_finetune-8f13a25d.pth",
         "imagenet": "https://download.pytorch.org/models/resnext101_32x8d-8ba56ff5.pth",
         "instagram": "https://download.pytorch.org/models/ig_resnext101_32x8-c38310e5.pth",
         "ssl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_supervised_resnext101_32x8-2cfe2f8b.pth",  # noqa
