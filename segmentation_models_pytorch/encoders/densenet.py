@@ -22,6 +22,7 @@ Methods:
         number of feature tensors = 6 (one with same resolution as input and 5 downsampled),
         depth = 3 -> number of feature tensors = 4 (one with same resolution as input and 3 downsampled).
 """
+from copy import deepcopy
 
 import re
 import torch.nn as nn
