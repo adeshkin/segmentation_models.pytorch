@@ -71,18 +71,29 @@ class ResNetEncoder(ResNet, EncoderMixin):
         state_dict.pop("fc.bias", None)
         state_dict.pop("fc.weight", None)
         super().load_state_dict(state_dict, **kwargs)
-
-
+        
 new_settings = {
     "resnet18": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnet18_lpf4_finetune-8cc58f59.pth",
         "ssl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_supervised_resnet18-d92f0530.pth",  # noqa
         "swsl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_weakly_supervised_resnet18-118f1556.pth",  # noqa
     },
+    "resnet34": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnet34_lpf4_finetune-db622952.pth",
+    },
     "resnet50": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnet50_lpf4_finetune-cad66808.pth",
         "ssl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_supervised_resnet50-08389792.pth",  # noqa
         "swsl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_weakly_supervised_resnet50-16a12f1b.pth",  # noqa
     },
+    "resnet101": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnet101_lpf4_finetune-9280acb0.pth",
+    },
+    "resnet152": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnet152_lpf4_finetune-7f67d9ae.pth",
+    },
     "resnext50_32x4d": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnext50_32x4d_lpf4_finetune-9106e549.pth",
         "imagenet": "https://download.pytorch.org/models/resnext50_32x4d-7cdf4587.pth",
         "ssl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_supervised_resnext50_32x4-ddb3e555.pth",  # noqa
         "swsl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_weakly_supervised_resnext50_32x4-72679e44.pth",  # noqa
@@ -92,6 +103,7 @@ new_settings = {
         "swsl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_weakly_supervised_resnext101_32x4-3f87e46b.pth",  # noqa
     },
     "resnext101_32x8d": {
+        "antialiased_f4": "hhttps://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/resnext101_32x8d_lpf4_finetune-8f13a25d.pth",
         "imagenet": "https://download.pytorch.org/models/resnext101_32x8d-8ba56ff5.pth",
         "instagram": "https://download.pytorch.org/models/ig_resnext101_32x8-c38310e5.pth",
         "ssl": "https://dl.fbaipublicfiles.com/semiweaksupervision/model_files/semi_supervised_resnext101_32x8-2cfe2f8b.pth",  # noqa
