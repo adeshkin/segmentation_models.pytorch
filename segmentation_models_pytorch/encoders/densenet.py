@@ -129,21 +129,23 @@ class DenseNetEncoder(DenseNet, EncoderMixin):
         return features
 
     def load_state_dict(self, state_dict):
+        state_dict1 = state_dict["state_dict"]
+        
         pattern = re.compile(
             r"^(.*denselayer\d+\.(?:norm|relu|conv))\.((?:[12])\.(?:weight|bias|running_mean|running_var))$"
         )
-        for key in list(state_dict.keys()):
+        for key in list(state_dict1.keys()):
             res = pattern.match(key)
             if res:
                 new_key = res.group(1) + res.group(2)
-                state_dict[new_key] = state_dict[key]
-                del state_dict[key]
+                state_dict1[new_key] = state_dict1[key]
+                del state_dict1[key]
 
         # remove linear
-        state_dict.pop("classifier.bias", None)
-        state_dict.pop("classifier.weight", None)
+        state_dict1.pop("classifier.bias", None)
+        state_dict1.pop("classifier.weight", None)
 
-        super().load_state_dict(state_dict)
+        super().load_state_dict(state_dict1)
 
 
 densenet_encoders = {
