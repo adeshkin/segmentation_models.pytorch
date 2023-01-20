@@ -27,7 +27,8 @@ import re
 import torch.nn as nn
 
 from pretrainedmodels.models.torchvision_models import pretrained_settings
-from torchvision.models.densenet import DenseNet
+#from torchvision.models.densenet import DenseNet
+from antialiased_cnns.densenet import DenseNet
 
 from ._base import EncoderMixin
 
