@@ -32,7 +32,48 @@ from antialiased_cnns.densenet import DenseNet
 
 from ._base import EncoderMixin
 
+model_urls = {
+    'densenet121_lpf2': 'https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet121_lpf2-7da7d4cd.pth',
+    'densenet121_lpf3': 'https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet121_lpf3-0f267ad8.pth',
+    'densenet121_lpf4': 'https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet121_lpf4-edeaab00.pth',
+    'densenet121_lpf5': 'https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet121_lpf5-ebc7880c.pth',
+    'densenet121_lpf4_finetune': '',
+    'densenet161_lpf4_finetune': '',
+    'densenet169_lpf4_finetune': '',
+    'densenet201_lpf4_finetune': '',
+}
 
+new_settings = {
+    "densenet121": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet121_lpf4_finetune-eceaa619.pth",
+    },
+    "densenet161": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet161_lpf4_finetune-a5e0f328.pth",
+    },
+    "densenet169": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet169_lpf4_finetune-992131e6.pth",
+    },
+    "densenet201": {
+        "antialiased_f4": "https://antialiased-cnns.s3.us-east-2.amazonaws.com/weights_v0.1/densenet201_lpf4_finetune-736979b2.pth",
+    },
+}
+
+pretrained_settings = deepcopy(pretrained_settings)
+for model_name, sources in new_settings.items():
+    if model_name not in pretrained_settings:
+        pretrained_settings[model_name] = {}
+
+    for source_name, source_url in sources.items():
+        pretrained_settings[model_name][source_name] = {
+            "url": source_url,
+            "input_size": [3, 224, 224],
+            "input_range": [0, 1],
+            "mean": [0.485, 0.456, 0.406],
+            "std": [0.229, 0.224, 0.225],
+            "num_classes": 1000,
+        }
+
+        
 class TransitionWithSkip(nn.Module):
     def __init__(self, module):
         super().__init__()
