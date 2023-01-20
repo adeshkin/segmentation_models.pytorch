@@ -26,9 +26,12 @@ from copy import deepcopy
 
 import torch.nn as nn
 
-from torchvision.models.resnet import ResNet
-from torchvision.models.resnet import BasicBlock
-from torchvision.models.resnet import Bottleneck
+# from torchvision.models.resnet import ResNet
+# from torchvision.models.resnet import BasicBlock
+# from torchvision.models.resnet import Bottleneck
+from antialiased_cnns.resnet import ResNet
+from antialiased_cnns.resnet import BasicBlock
+from antialiased_cnns.resnet import Bottleneck
 from pretrainedmodels.models.torchvision_models import pretrained_settings
 
 from ._base import EncoderMixin
