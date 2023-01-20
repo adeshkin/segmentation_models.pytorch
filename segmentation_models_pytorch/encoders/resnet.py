@@ -68,9 +68,10 @@ class ResNetEncoder(ResNet, EncoderMixin):
         return features
 
     def load_state_dict(self, state_dict, **kwargs):
-        state_dict.pop("fc.bias", None)
-        state_dict.pop("fc.weight", None)
-        super().load_state_dict(state_dict, **kwargs)
+        state_dict1 = state_dict["state_dict"]
+        state_dict1.pop("fc.bias", None)
+        state_dict1.pop("fc.weight", None)
+        super().load_state_dict(state_dict1, **kwargs)
         
 new_settings = {
     "resnet18": {
